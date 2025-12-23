@@ -1,0 +1,373 @@
+/* =========================================
+   1. IMPORT FONT & CẤU HÌNH MÀU SẮC
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+    --bunny-main: #D9869B;      /* Hồng đậm chính */
+    --bunny-hover: #C26D82;     /* Hồng khi hover */
+    --bunny-light: #FCEEF2;     /* Hồng cực nhạt nền */
+    --text-main: #2D2426;       /* Chữ chính (Nâu đen đậm) */
+    --text-sub: #6E5D60;        /* Chữ phụ (Xám nâu) */
+    --bg-body: #F8F9FA;         /* Nền trang (Xám rất nhạt cho sang) */
+    --white: #ffffff;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 25px rgba(217, 134, 155, 0.15);
+}
+
+/* =========================================
+   2. CẤU TRÚC CHUNG
+   ========================================= */
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Container chuẩn TMĐT */
+.container {
+    max-width: 1200px;
+}
+
+/* =========================================
+   3. NAVBAR (THANH ĐIỀU HƯỚNG)
+   ========================================= */
+.navbar-bunny {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: var(--bunny-main) !important;
+    font-weight: 800;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Thanh Search chuẩn TMĐT */
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-box input {
+    border-radius: 25px;
+    border: 1px solid #eee;
+    padding: 10px 20px;
+    padding-right: 50px;
+    background: #f1f1f1;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    background: var(--white);
+    border-color: var(--bunny-main);
+    box-shadow: 0 0 0 0.2rem rgba(217, 134, 155, 0.1);
+    outline: none;
+}
+
+.search-box button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50%;
+    background: var(--bunny-main);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+}
+
+/* Badge giỏ hàng */
+.cart-icon-wrapper {
+    position: relative;
+    padding: 8px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--bunny-main);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* =========================================
+   4. PRODUCT CARD (THẺ SẢN PHẨM)
+   ========================================= */
+.card-product {
+    background: var(--white);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-sm);
+}
+
+.card-product:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Container ảnh */
+.card-img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-product img {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.card-product:hover img {
+    transform: scale(1.05);
+}
+
+/* Badge trạng thái (Sẵn sàng/Hết hàng) */
+.badge-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    z-index: 10;
+}
+
+.card-body {
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    height: 2.4rem; /* Giới hạn 2 dòng chữ */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+}
+
+.price-tag {
+    color: var(--bunny-main);
+    font-weight: 800;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* =========================================
+   5. BUTTONS & ACTIONS
+   ========================================= */
+.btn-bunny-primary {
+    background: var(--bunny-main);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-bunny-primary:hover {
+    background: var(--bunny-hover);
+    box-shadow: 0 5px 15px rgba(217, 134, 155, 0.4);
+}
+
+/* =========================================
+   6. SECTION TITLES
+   ========================================= */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--bunny-main);
+    border-radius: 2px;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--white);
+    padding: 60px 0 30px;
+    border-top: 1px solid #eee;
+    margin-top: 80px;
+}
+
+.footer-title {
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--bunny-main);
+}
+
+.footer-link {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-sub);
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    padding-left: 5px;
+    color: var(--bunny-main);
+}
+
+/* =========================================
+   1. HỆ THỐNG GRID RESPONSIVE (BỔ SUNG)
+   ========================================= */
+
+/* Cấu hình mặc định cho Card Image để không bị vỡ trên mọi thiết bị */
+.card-img-container {
+    position: relative;
+    width: 100%;
+    /* Tạo tỉ lệ khung hình 3:4 cho ảnh sản phẩm */
+    padding-top: 133%; 
+    overflow: hidden;
+    background-color: #f8f8f8;
+}
+
+.card-img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* =========================================
+   2. MEDIA QUERIES (CHO TỪNG THIẾT BỊ)
+   ========================================= */
+
+/* --- TABLET & MOBILE (Dưới 992px) --- */
+@media (max-width: 991.98px) {
+    .navbar-bunny {
+        padding: 10px 0;
+    }
+    
+    .search-box {
+        max-width: 100%;
+        margin: 10px 0;
+        order: 3; /* Đẩy thanh search xuống dưới logo trên mobile */
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* --- MOBILE LỚN & TABLET NHỎ (Dưới 768px) --- */
+@media (max-width: 767.98px) {
+    /* Quan trọng: Trên mobile hiển thị 2 cột để khách dễ lướt */
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .card-product .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+        height: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .price-tag {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .btn-bunny-primary {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    /* Ẩn bớt các chữ không cần thiết trên Mobile để gọn hơn */
+    .nav-link span {
+        display: none; 
+    }
+}
+
+/* --- MOBILE SIÊU NHỎ (Dưới 576px) --- */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+    
+    /* Thu nhỏ khoảng cách padding để tiết kiệm diện tích */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* =========================================
+   3. CẤU TRÚC HTML KHUYÊN DÙNG (BOOTSTRAP)
+   ========================================= */
+/* 
+   Bạn nên dùng các class này của Bootstrap trong file JSP 
+   để kết hợp với CSS trên:
+   
+   <div class="row g-3 g-lg-4">
+      <div class="col-6 col-md-4 col-lg-3"> 
+         <!-- Thẻ Card ở đây -->
+      </div>
+   </div>
+
+   Giải thích class Bootstrap:
+   - col-6: 2 cột trên điện thoại (50% width)
+   - col-md-4: 3 cột trên tablet
+   - col-lg-3: 4 cột trên máy tính
+   - g-3 g-lg-4: Khoảng cách giữa các card (gutter)
+*/
+
+/* Tối ưu nút bấm trên cảm ứng (Touch Target) */
+button, .btn, .nav-link {
+    min-height: 40px; /* Dễ dàng bấm bằng ngón tay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hiệu ứng mượt khi xoay màn hình */
+* {
+    transition: width 0.3s ease, padding 0.3s ease;
+}
